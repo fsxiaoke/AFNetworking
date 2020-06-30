@@ -977,8 +977,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
             disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
         } else if ([result isKindOfClass:NSURLCredential.class]) {
             credential = result;
-            //2020.6.24 liy：证书验证失败 拒绝所有请求！
-            disposition = NSURLSessionAuthChallengeRejectProtectionSpace;
+            disposition = NSURLSessionAuthChallengeUseCredential;
         } else if ([result isKindOfClass:NSNumber.class]) {
             disposition = [result integerValue];
             NSAssert(disposition == NSURLSessionAuthChallengePerformDefaultHandling || disposition == NSURLSessionAuthChallengeCancelAuthenticationChallenge || disposition == NSURLSessionAuthChallengeRejectProtectionSpace, @"");
@@ -992,14 +991,14 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 
     if (evaluateServerTrust) {
         if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
-            //2020.6.24 liy：证书验证失败 拒绝所有请求！
-            disposition = NSURLSessionAuthChallengeRejectProtectionSpace;
+            disposition = NSURLSessionAuthChallengeUseCredential;
             credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
         } else {
             objc_setAssociatedObject(task, AuthenticationChallengeErrorKey,
                                      [self serverTrustErrorForServerTrust:challenge.protectionSpace.serverTrust url:task.currentRequest.URL],
                                      OBJC_ASSOCIATION_RETAIN);
-            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+            //2020.6.24 liy：证书验证失败 拒绝所有请求！
+            disposition = NSURLSessionAuthChallengeRejectProtectionSpace;
         }
     }
 
