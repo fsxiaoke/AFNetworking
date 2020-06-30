@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "299522381BBF104D00859F49"
                BuildableName = "AFNetworking.framework"
-               BlueprintName = "AFNetworking iOS"
+               BlueprintName = "AFNetworking"
                ReferencedContainer = "container:AFNetworking.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,7 +49,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "299522381BBF104D00859F49"
             BuildableName = "AFNetworking.framework"
-            BlueprintName = "AFNetworking iOS"
+            BlueprintName = "AFNetworking"
             ReferencedContainer = "container:AFNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -106,7 +106,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "299522381BBF104D00859F49"
             BuildableName = "AFNetworking.framework"
-            BlueprintName = "AFNetworking iOS"
+            BlueprintName = "AFNetworking"
             ReferencedContainer = "container:AFNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -129,7 +129,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "299522381BBF104D00859F49"
             BuildableName = "AFNetworking.framework"
-            BlueprintName = "AFNetworking iOS"
+            BlueprintName = "AFNetworking"
             ReferencedContainer = "container:AFNetworking.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
